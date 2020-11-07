@@ -2,8 +2,13 @@ version: 0.2
 
 phases:
   install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y software-properties-common
+      - apt-get update -y
+      - apt-get install -y maven
     runtime-versions:
-      java: corretto8
+      java: openjdk8
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
