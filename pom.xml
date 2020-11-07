@@ -15,6 +15,8 @@
 	<description>Microservice for User</description>
 
 	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<java.version>1.8</java.version>
 		<cucumber.version>6.6.1</cucumber.version>
 	</properties>
@@ -86,11 +88,11 @@
 			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-core</artifactId>
-			<version>${cucumber.version}</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>io.cucumber</groupId>-->
+<!--			<artifactId>cucumber-core</artifactId>-->
+<!--			<version>${cucumber.version}</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-spring</artifactId>
@@ -100,7 +102,7 @@
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit-platform-engine</artifactId>
-			<version>6.8.0</version>
+			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -135,7 +137,6 @@
 
 
 	<build>
-<!--		<defaultGoal>spring-boot:run</defaultGoal>-->
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -150,37 +151,6 @@
 					</properties>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
-				<executions>
-				<execution>
-					<!--Work around. Surefire does not use JUnit's Test Engine discovery functionality -->
-					<id>CLI-test</id>
-					<phase>integration-test</phase>
-					<goals>
-						<goal>run</goal>
-					</goals>
-					<configuration>
-						<target>
-							<echo message="Running JUnit Platform CLI"/>
-							<java classname="org.junit.platform.console.ConsoleLauncher"
-								  fork="true"
-								  failonerror="true"
-								  newenvironment="true"
-								  maxmemory="512m"
-								  classpathref="maven.test.classpath">
-								<arg value="--include-engine"/>
-								<arg value="cucumber"/>
-								<arg value="--scan-classpath"/>
-								<arg value="${project.build.testOutputDirectory}"/>
-							</java>
-						</target>
-					</configuration>
-				</execution>
-			</executions>
-		</plugin>
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
