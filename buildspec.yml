@@ -2,15 +2,11 @@ version: 0.2
 
 phases:
   install:
-    commands:
-      - apt-get update -y
-      - apt-get install -y software-properties-common
-      - apt-get update -y
-      - apt-get install -y maven
     runtime-versions:
       java: openjdk8
   pre_build:
     commands:
+      - mvn -ver
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
