@@ -1,0 +1,7 @@
+/Users/julian/Documents/microservice-user/src/main/java/com/hu/microserviceuser/data/repository/UserRepository.java
+/Users/julian/Documents/microservice-user/src/main/java/com/hu/microserviceuser/web/dto/UserDto.java
+/Users/julian/Documents/microservice-user/src/main/java/com/hu/microserviceuser/data/entity/User.java
+/Users/julian/Documents/microservice-user/src/main/java/com/hu/microserviceuser/MicroserviceUserApplication.java
+/Users/julian/Documents/microservice-user/src/main/java/com/hu/microserviceuser/web/controller/UserController.java
+/Users/julian/Documents/microservice-user/src/main/java/com/hu/microserviceuser/domain/service/UserService.java
+/Users/julian/Documents/microservice-user/src/main/java/com/hu/microserviceuser/domain/exception/ResourceNotFoundException.java
